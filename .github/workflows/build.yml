@@ -28,6 +28,8 @@ jobs:
     steps:
       - name: Get a repo code
         uses: actions/checkout@v5
+      - name: Show Java version
+        run: java -version
       - name: Run Maven test
         run: mvn test
   build:
