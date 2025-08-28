@@ -1,30 +1,28 @@
 name: Spring Petclinic - MR repo
 on:  
-  push:
+  pull_request:
     branches: main
 env:
   MAVEN_IMAGE: maven:3.8.5-openjdk-17
 jobs:
-  # checkstyle:
-  #   runs-on: ubuntu-latest
-  #   container:
-  #     image: ${{ vars.MAVEN_IMAGE }}
-  #   steps:
-  #     - name: Get a repo code
-  #       uses: actions/checkout@v5
-  #     - name: Generate checkstyle report using Maven
-  #       run: mvn checkstyle:checkstyle
-  #     - name: Upload artifact
-  #       uses: actions/upload-artifact@v4
-  #       with:
-  #         name: checkstyle_report
-  #         path:
-  #           target/reports/checkstyle.html
-  test:
-    # needs: checkstyle
+  checkstyle:
     runs-on: ubuntu-latest
-    # container:
-    #   image: ${{ vars.MAVEN_IMAGE }}
+    container:
+      image: ${{ vars.MAVEN_IMAGE }}
+    steps:
+      - name: Get a repo code
+        uses: actions/checkout@v5
+      - name: Generate checkstyle report using Maven
+        run: mvn checkstyle:checkstyle
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: checkstyle_report
+          path:
+            target/reports/checkstyle.html
+  test:
+    needs: checkstyle
+    runs-on: ubuntu-latest
     steps:
       - name: Get a repo code
         uses: actions/checkout@v5
