@@ -1,6 +1,6 @@
 name: Spring Petclinic - MR repo
 on:  
-  pull_request:
+  push:
     branches: main
 env:
   MAVEN_IMAGE: maven:3.8.5-openjdk-17
@@ -8,7 +8,7 @@ jobs:
   checkstyle:
     runs-on: ubuntu-latest
     container:
-      image: $MAVEN_IMAGE
+      image: ${{ env.MAVEN_IMAGE }}
     steps:
       - name: Get a repo code
         uses: actions/checkout@v5
