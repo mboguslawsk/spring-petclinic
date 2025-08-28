@@ -23,8 +23,8 @@ jobs:
   test:
     needs: checkstyle
     runs-on: ubuntu-latest
-    container:
-      image: ${{ vars.MAVEN_IMAGE }}
+    # container:
+    #   image: ${{ vars.MAVEN_IMAGE }}
     steps:
       - name: Get a repo code
         uses: actions/checkout@v5
