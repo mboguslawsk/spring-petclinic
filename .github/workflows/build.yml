@@ -21,7 +21,7 @@ jobs:
   #         path:
   #           target/reports/checkstyle.html
   test:
-    needs: checkstyle
+    # needs: checkstyle
     runs-on: ubuntu-latest
     # container:
     #   image: ${{ vars.MAVEN_IMAGE }}
