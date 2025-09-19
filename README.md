@@ -4,7 +4,7 @@ This project demonstrates monitoring a Spring Petclinic app using **Prometheus**
 
 ---
 
-## 3. Dockerfile with JMX Exporter
+## 1. Dockerfile with JMX Exporter
 
 ```dockerfile
 FROM eclipse-temurin:17-jre
@@ -31,7 +31,7 @@ CMD java \
 
 ---
 
-## 4. Additional Configuration Files
+## 2. Additional Configuration Files
 
 * `loki-config.yml` – Loki configuration
 * `promtail-config.yml` – Promtail configuration
@@ -39,7 +39,7 @@ CMD java \
 
 ---
 
-## 5. Results
+## 3. Results
 
 ### Docker Containers
 
