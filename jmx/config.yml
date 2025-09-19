@@ -1,0 +1,19 @@
+startDelaySeconds: 0
+jmxUrl: ""
+ssl: false
+lowercaseOutputName: true
+lowercaseOutputLabelNames: true
+
+rules:
+  - pattern: "java.lang<type=OperatingSystem><>(CpuLoad)"
+    name: "java_lang_OperatingSystem_CpuLoad"
+    type: GAUGE
+  - pattern: "java.lang<type=OperatingSystem><>(FreeMemorySize)"
+    name: "java_lang_OperatingSystem_FreeMemorySize"
+    type: GAUGE
+  - pattern: "java.lang<type=Memory><name=HeapMemoryUsage><>(used)"
+    name: "java_lang_Memory_HeapMemoryUsage_used"
+    type: GAUGE
+  - pattern: "java.lang<type=Runtime><>(Uptime)"
+    name: "java_lang_Runtime_Uptime"
+    type: COUNTER
